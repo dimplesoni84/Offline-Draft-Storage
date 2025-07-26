@@ -96,7 +96,7 @@ export const OfflineDraftEditor: React.FC<OfflineDraftEditorProps> = ({
   // Recover draft on mount
   useEffect(() => {
     getDraftFromDB(id).then((draft) => {
-      if (draft && draft.content) {
+      if (draft?.content) {
         setContent(draft.content);
         setStatus("recovered");
         setTimeout(() => setStatus("idle"), 2000);
