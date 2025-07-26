@@ -257,12 +257,7 @@ export const OfflineDraftEditor: React.FC<OfflineDraftEditorProps> = ({
     padding: "12px 36px",
     borderRadius: 24,
     border: "none",
-    background:
-      !content || status === "uploading"
-        ? "#d1d5db"
-        : isOnline
-        ? "#7c5cff"
-        : "#7c5cff",
+    background: !content || status === "uploading" ? "#d1d5db" : "#7c5cff",
     color: "#fff",
     fontWeight: 700,
     fontSize: 18,
