@@ -293,6 +293,16 @@ export const OfflineDraftEditor: React.FC<OfflineDraftEditorProps> = ({
     transition: "background 0.2s, box-shadow 0.2s",
   };
 
+  // Button label logic extracted for maintainability
+  let buttonLabel = "";
+  if (status === "uploading") {
+    buttonLabel = "Uploading...";
+  } else if (isOnline) {
+    buttonLabel = "Post";
+  } else {
+    buttonLabel = "Save Draft";
+  }
+
   return (
     <div style={{ minHeight: "100vh", minWidth: "100vw", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #e0e7ff 0%, #f8fafc 40%, #c7d2fe 100%)" }}>
       <div style={cardStyle}>
@@ -339,12 +349,8 @@ export const OfflineDraftEditor: React.FC<OfflineDraftEditorProps> = ({
             disabled={!content || status === "uploading"}
             style={buttonStyle}
           >
-            {status === "uploading"
-              ? "Uploading..."
-              : isOnline
-                ? "Post"
-                : "Save Draft"}
-        </button>
+            {buttonLabel}
+          </button>
         </div>
         <div style={statusStyle}>
           {status === "recovered" && <span style={{ color: "#f59e42", animation: "fadeIn 0.5s" }}>Draft recovered!</span>}
